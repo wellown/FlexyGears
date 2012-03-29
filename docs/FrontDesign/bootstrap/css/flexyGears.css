@@ -1,0 +1,13 @@
+/*
+  FlexyGearsCSS文件
+  对bootstrap进行修订
+*/
+
+/*
+  居中显示的MessageBox
+  实现在指定Container中的居中显示信息。
+*/
+.msgbox {
+  width: 320px;
+  margin: 7em auto;
+}
