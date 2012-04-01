@@ -19,15 +19,17 @@ VirtualENV使用FAQ
 
 ImportERROR通常是由于Python无法找到扩展库造成的。为解决这个问题，最简单的方法是查看PYTHONPATH的设置是否正确。在VirtualENV环境中，由于没有提供PYTHONPATH的修改，因此可以通过修改activate.bat和deactivate.bat方便每次的使用。两个批处理文件修改的代码如下
 
-activate.bat::
-	set _OLD_PYTHONPATH=%PYTHONPATH%
-	set PYTHONPATH=d:\pve\Lib\site-packages
+* activate.bat
 
-deactivate.bat::
+	set _OLD_PYTHONPATH=%PYTHONPATH%
+	set PYTHONPATH=d:\pve\Lib\site-packages::
+
+* deactivate.bat
+
 	if defined _OLD_PYTHONPATH (
 		set PYTHONPATH=%_OLD_PYTHONPATH%
 		set _OLD_PYTHONPATH=
 	)
-	if not defined _OLD_PYTHONPATH 	set PYTHONPATH=
+	if not defined _OLD_PYTHONPATH 	set PYTHONPATH= ::
 
 
