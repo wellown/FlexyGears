@@ -23,16 +23,16 @@ ImportERROR通常是由于Python无法找到扩展库造成的。为解决这个
 
 	::
 
-	set _OLD_PYTHONPATH=%PYTHONPATH%
-	set PYTHONPATH=d:\pve\Lib\site-packages
+		set _OLD_PYTHONPATH=%PYTHONPATH%
+		set PYTHONPATH=d:\pve\Lib\site-packages
 
 * deactivate.bat
 
 	::
-	if defined _OLD_PYTHONPATH (
-		set PYTHONPATH=%_OLD_PYTHONPATH%
-		set _OLD_PYTHONPATH=
-	)
-	if not defined _OLD_PYTHONPATH 	set PYTHONPATH=
+		if defined _OLD_PYTHONPATH (
+			set PYTHONPATH=%_OLD_PYTHONPATH%
+			set _OLD_PYTHONPATH=
+		)
+		if not defined _OLD_PYTHONPATH 	set PYTHONPATH=
 
 
