@@ -15,7 +15,36 @@ django-userena安装可以使用 `pip <http://www.pip-installer.org/en/latest/in
 
 django-userena的设置
 --------------------
-使用django-userena需要在setting.py和urls.py中进行相关的设置
+使用django-userena需要在setting.py和urls.py中进行相关的设置。setting.py中需要增加的设置如下（在默认配置下）::
+
+	INSTALLED_APPS = (
+	    # 用户注册功能所需要的应用
+    	'userena',
+    	'guardian',
+    	'easy_thumbnails',
+	)
+	# userena所需要的设置
+	# Email后端应用供userena使用。
+	Email_BACKEND = 'django.core.mail.backends.dummy.Email_Backend'
+	# userena登录相关设置
+	LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+	LOGIN_URL = '/accounts/signin/'
+	LOGOUT_URL = '/accounts/signout/'
+	
+	# userena在用户注册后不需要执行激活操作(默认为True)
+	USERENA_ACTIVATION_REQUIRED = False
+	USERENA_DISABLE_PROFILE_LIST = True
+	USERENA_MUGSHOT_SIZE = 140
+
+	# Django-guardian所需要的设置
+	ANONYMOUS_USER_ID = -1
+
+url.py中需要增加用户管理相关URL解析规则如下::
+	
+	(r'^accounts/', include('userena.urls')),
+
+
+
 
 `virtualenv <http://pypi.python.org/pypi/virtualenv>`_
 `pip <http://www.pip-installer.org/en/latest/index.html>`_
