@@ -9,7 +9,7 @@ django-userena\ [#]_\ 是一套django的用户管理开发扩展组件。可以�
 
 django-userena的安装
 --------------------
-django-userena安装可以使用`pip <http://www.pip-installer.org/en/latest/index.html>`_  进行快速安装，运行下面的指令可以自动完成扩展组件的安装或升级（pip的其他使用方法请参考相关文档）::
+django-userena安装可以使用 `pip <http://www.pip-installer.org/en/latest/index.html>`_  进行快速安装，运行下面的指令可以自动完成扩展组件的安装或升级（pip的其他使用方法请参考相关文档）::
 
 	pip install django-userena
 
@@ -18,6 +18,7 @@ django-userena的设置
 使用django-userena需要在setting.py和urls.py中进行相关的设置
 
 `virtualenv <http://pypi.python.org/pypi/virtualenv>`_
+`pip <http://www.pip-installer.org/en/latest/index.html>`_
 
 ----
 
