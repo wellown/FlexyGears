@@ -15,7 +15,7 @@ django-userena安装可以使用 `pip <http://www.pip-installer.org/en/latest/in
 
 django-userena的设置
 --------------------
-使用django-userena需要在setting.py和urls.py中进行相关的设置。setting.py中需要增加的设置如下（在默认配置下）::
+使用django-userena需要在setting.py和urls.py中进行相关的设置\ [#]_\ 。setting.py中需要增加的设置如下（在默认配置下）::
 
 	INSTALLED_APPS = (
 	    # 用户注册功能所需要的应用
@@ -58,3 +58,4 @@ easy-thumbnails是django的用于处理图像生成缩略图的扩展组件。�
 ----
 
 .. [#] http://www.django-userena.org/
+.. [#] django-userena开发手册 http://docs.django-userena.org/en/latest/index.html
