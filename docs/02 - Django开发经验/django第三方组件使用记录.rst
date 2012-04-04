@@ -22,8 +22,11 @@ django-userena的设置
     	'userena',
     	'guardian',
     	'easy_thumbnails',
+    	# 由于userena仅提供abstract profile定义，因此使用userena必须自定义UserProfile
+    	'FlexyGears.profiles',
 	)
 	# userena所需要的设置
+	AUTH_PROFILE_MODULE = 'profiles.Profile'
 	# Email后端应用供userena使用。
 	Email_BACKEND = 'django.core.mail.backends.dummy.Email_Backend'
 	# userena登录相关设置
@@ -43,11 +46,14 @@ url.py中需要增加用户管理相关URL解析规则如下::
 	
 	(r'^accounts/', include('userena.urls')),
 
+django-userena中的组件easy-thumbnails的运行要求
+----------------------------------------------
+easy-thumbnails是django的用于处理图像生成缩略图的扩展组件。该组件的运行，需要python环境安装PIL（ `Python Image Library <http://www.pythonware.com/products/pil/>`_ ）。在64位Win7操作系统环境下，使用64位python可能会遇到“无法找到python，无法安装PIL库”的问题。要解决这个问题可以有两个办法：
+
+* 直接安装64位的PIL扩展库。由于官方网站提供的是32位的Windows安装版本，所以需要找64位版本。在 `LDF <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`_ 可以找到。
+* 直接从源代码安装。可以从官方网站下载 PIL-1.1.7.tar.gz，使用pip安装。
 
 
-
-`virtualenv <http://pypi.python.org/pypi/virtualenv>`_
-`pip <http://www.pip-installer.org/en/latest/index.html>`_
 
 ----
 
