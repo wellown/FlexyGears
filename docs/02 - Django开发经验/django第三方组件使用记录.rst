@@ -46,7 +46,7 @@ url.py中需要增加用户管理相关URL解析规则如下::
 	
 	(r'^accounts/', include('userena.urls')),
 
-django-userena中的组件easy-thumbnails的运行要求
+django-userena中的组件easy-thumbnails所需的扩展库PIL
 ----------------------------------------------
 easy-thumbnails是django的用于处理图像生成缩略图的扩展组件。该组件的运行，需要python环境安装PIL（ `Python Image Library <http://www.pythonware.com/products/pil/>`_ ）。在64位Win7操作系统环境下，使用64位python可能会遇到“无法找到python，无法安装PIL库”的问题。要解决这个问题可以有两个办法：
 
@@ -57,5 +57,5 @@ easy-thumbnails是django的用于处理图像生成缩略图的扩展组件。�
 
 ----
 
-.. [#] http://www.django-userena.org/
-.. [#] django-userena开发手册 http://docs.django-userena.org/en/latest/index.html
+.. [#] django-userena官方网站：http://www.django-userena.org/
+.. [#] django-userena开发手册：http://docs.django-userena.org/en/latest/index.html

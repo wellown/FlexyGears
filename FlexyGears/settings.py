@@ -1,3 +1,4 @@
+# coding: utf-8
 # Django settings for FlexyGears project.
 import os
 
@@ -50,12 +51,13 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+# MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(APP_ROOT_DIR, 'site_media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/site_media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -124,7 +126,27 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    # 用户注册相关应用
+    'userena',
+    'guardian',
+    'easy_thumbnails',
+    'FlexyGears.profiles',
 )
+
+# userena所需要的设置
+# Email后端应用供userena使用。
+Email_BACKEND = 'django.core.mail.backends.dummy.Email_Backend'
+# userena登录相关设置
+LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_URL = '/accounts/signin/'
+LOGOUT_URL = '/accounts/signout/'
+AUTH_PROFILE_MODULE = 'profiles.Profile'
+
+USERENA_DISABLE_PROFILE_LIST = True
+USERENA_MUGSHOT_SIZE = 140
+
+# Django-guardian所需要的设置
+ANONYMOUS_USER_ID = -1
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
