@@ -1,0 +1,18 @@
+{%extends "userena/base_userena.html"%}
+{% load bootstrap_toolkit %}
+{%block userena%}
+	    <div class="msgbox">
+            <h1 >FG：欢迎登录</h1>
+            <hr>
+            <form action="" method="post">
+            	{% csrf_token %}
+                {{form|as_bootstrap}}
+                <div class ="actions">
+                    <input type="hidden" name="next" value="/"/>
+                    <input type="submit" class="btn btn-primary btn-large" value="登录"/>
+                </div>
+                <hr>
+                <p>没有账号吗？点击<a href="/accounts/signup">这里</a>注册。</p>
+            </form>
+        </div>
+{%endblock%}    

@@ -1,5 +1,9 @@
 # coding: utf-8
 from django.conf.urls import patterns, include, url
+from profiles.forms import SigninFormExtra
+
+import os
+site_media = os.path.join(os.path.dirname(__file__), '../site_media')
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -15,7 +19,13 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    #url(r'^accounts/signin/$',
+    #  'userena.views.signin',
+    #  {'auth_form': SigninFormExtra},
+    #  name='userena_signin'),
     url(r'^accounts/', include('userena.urls')),
     url(r'^$', 'FlexyGears.views.home'),
+
+    # 开发服务器中提供的静态文件访问服务。生产环境中需要禁止以避免引起性能问题
     url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': site_media}),
 )

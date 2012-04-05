@@ -34,7 +34,7 @@ TIME_ZONE = 'Asia/Shanghai'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'zh-cn'
+LANGUAGE_CODE = 'zh_CN'
 
 SITE_ID = 1
 
@@ -113,6 +113,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(APP_ROOT_DIR, 'templates/')
 )
 
 INSTALLED_APPS = (
@@ -126,6 +127,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    # 使用bootstrap辅助程序完成各个Form的渲染
+    'bootstrap_toolkit',
     # 用户注册相关应用
     'userena',
     'guardian',
@@ -136,12 +139,19 @@ INSTALLED_APPS = (
 # userena所需要的设置
 # Email后端应用供userena使用。
 Email_BACKEND = 'django.core.mail.backends.dummy.Email_Backend'
+# userena backends settings
+AUTHENTICATION_BACKENDS = (
+    'userena.backends.UserenaAuthenticationBackend',
+    'guardian.backends.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
 # userena登录相关设置
 LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 AUTH_PROFILE_MODULE = 'profiles.Profile'
 
+USERENA_ACTIVATION_REQUIRED = False
 USERENA_DISABLE_PROFILE_LIST = True
 USERENA_MUGSHOT_SIZE = 140
 
