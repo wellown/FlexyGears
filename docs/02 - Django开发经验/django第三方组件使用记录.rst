@@ -61,10 +61,60 @@ easy-thumbnails是django的用于处理图像生成缩略图的扩展组件。�
 
 自定义django-userena中的用户登录Form
 ----------------------------------
-使用userena的过程中，难免会遇到对原有Form进行调整的需求。
+使用userena的过程中，难免会遇到对原有Form进行调整的需求。为了修改
 
+django-debug-toolbar
+====================
+django-debug-toolbar\ [#]_\ 是django开发过程中的非常有用的调试工具。在开发项目中安装加载之后，可以随时查看页面调用过程中的 HTTP头、Request、相关SQL语句等内容。对django开发过程中的调试提供了非常有力的支持。django-debug-toolbar需要依赖django 1.1 及的以上版本。
+
+django-debug-toolbar的安装
+--------------------------
+使用PIP可以实现快速安装::
+	
+	pip install django-debug-toolbar
+
+django-debug-toolbar在开发项目中启用
+-----------------------------------
+要在开发项目中启用django-debug-toolbar，可以按照以下步骤执行::
+
+	1. 将django-debug-toolbar安装后的目录加入Python Path.（通常使用PIP安装后，该目录就已经设置好了。如果遇到Import Error之类的错误可以检查一下这个设置）
+
+	2. 修改setting.py，在项目中启用该功能：
+
+		# 加载中间件
+		MIDDLEWARE_CLASSES = (
+		    # 启用django-debug-toolbar中间件，
+		    # 注意：中间件加载顺序可能会对debug-toolbar的行为发生影响
+		    # 注意：在本中间件加载前的其他中间件活动，debug-toolbar不再跟踪
+		    'debug_toolbar.middleware.DebugToolbarMiddleware',
+		)
+
+		# 安装应用
+		INSTALLED_APPS = (
+			# 跟在其他已安装的APP之后。对顺序不敏感
+		    'debug_toolbar',
+		)
+
+		# 定义生效的IP地址
+		INTERNAL_IPS = ('127.0.0.1',)
+
+		# 定义debug-toolbar的模板目录
+		TEMPLATE_DIRS = (
+		    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+		    # Always use forward slashes, even on Windows.
+		    # Don't forget to use absolute paths, not relative paths.
+		    os.path.join(APP_ROOT_DIR, 'templates/'),
+		    'path/to/debug_toolbar/templates'
+		)
+
+	3. django-debug-toolbar应该已经可以开始工作了。 
+
+
+
+	
 
 ----
 
 .. [#] django-userena官方网站：http://www.django-userena.org/
 .. [#] django-userena开发手册：http://docs.django-userena.org/en/latest/index.html
+.. [#] django-debug-toolbar: https://github.com/robhudson/django-debug-toolbar
