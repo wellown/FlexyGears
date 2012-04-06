@@ -15,7 +15,7 @@ django-userena安装可以使用 `pip <http://www.pip-installer.org/en/latest/in
 
 django-userena的设置
 --------------------
-使用django-userena需要在setting.py和urls.py中进行相关的设置\ [#]_\ 。setting.py中需要增加的设置如下（在默认配置下）::
+使用django-userena需要在setting.py和urls.py中进行相关的设置。setting.py中需要增加的设置如下（在默认配置下）::
 
 	INSTALLED_APPS = (
 	    # 用户注册功能所需要的应用
@@ -61,7 +61,17 @@ easy-thumbnails是django的用于处理图像生成缩略图的扩展组件。�
 
 自定义django-userena中的用户登录Form
 ----------------------------------
-使用userena的过程中，难免会遇到对原有Form进行调整的需求。为了修改
+使用userena的过程中，难免会遇到对原有Form进行调整的需求。可以采用继承的方式对userena中的Form进行修改甚至重写。
+
+为了使用自定义的Form，需要在url.py中，在调用对应view的时候修改默认Form参数。例如::
+
+	url(r'^accounts/signin/$', 'userena.views.signin',
+      {'auth_form': SigninFormExtra}, name='userena_signin'),
+
+上述代码即修改了原有登录时所使用的Form，将从原有的SigninForm改成了项目自定义的SigninFormExtra。
+
+有关userena的各个视图所调用的Form，可以参考userena的开发手册\ [#]_\ 。
+
 
 django-debug-toolbar
 ====================
@@ -91,7 +101,7 @@ django-debug-toolbar在开发项目中启用
 
 		# 安装应用
 		INSTALLED_APPS = (
-			# 跟在其他已安装的APP之后。对顺序不敏感
+		    # 跟在其他已安装的APP之后。对顺序不敏感
 		    'debug_toolbar',
 		)
 
@@ -117,4 +127,4 @@ django-debug-toolbar在开发项目中启用
 
 .. [#] django-userena官方网站：http://www.django-userena.org/
 .. [#] django-userena开发手册：http://docs.django-userena.org/en/latest/index.html
-.. [#] django-debug-toolbar: https://github.com/robhudson/django-debug-toolbar
+.. [#] django-debug-toolbar: https://github.com/django-debug-toolbar/django-debug-toolbar
