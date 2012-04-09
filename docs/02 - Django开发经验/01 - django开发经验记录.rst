@@ -67,7 +67,7 @@ django提供了较好的国际化开发手段——使用GNU的gettext就能够�
 
 django-admin生成po文件遇到xgettext错误的解决方案
 ***********************************************
-在Windows环境中，使用django-admin.py生成po文件时可能会遇到xgettext错误。实际上是由于django-admin.py脚本无法找到GNU gettext程序导致的（该程序在Linux环境中天生具备）。要解决该错误，需要从GNU安装gettext程序。下载地址在 `GUN服务器 <http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/>_` 从上述目录中需要下载两个文件gettext-runtime-X.zip 和 gettext-tools-X.zip X为版本号
+在Windows环境中，使用django-admin.py生成po文件时可能会遇到xgettext错误。实际上是由于django-admin.py脚本无法找到GNU gettext程序导致的（该程序在Linux环境中天生具备）。要解决该错误，需要从GNU安装gettext程序。下载地址在 `GUN服务器 <http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/>`_ 从上述目录中需要下载两个文件gettext-runtime-X.zip 和 gettext-tools-X.zip X为版本号
 	
 	注意版本低了会报错“Django internationalization requires GNU gettext 0.15 or newer”）
 
