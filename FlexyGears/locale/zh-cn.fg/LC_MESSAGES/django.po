@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-09 16:26+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\profiles\models.py:13
+msgid "Male"
+msgstr ""
+
+#: .\profiles\models.py:14
+msgid "Female"
+msgstr ""
+
+#: .\profiles\models.py:19
+msgid "user"
+msgstr ""
+
+#: .\profiles\models.py:21 .\templates\userena\profile_detail.html.py:11
+msgid "Real name"
+msgstr ""
+
+#: .\profiles\models.py:23 .\templates\userena\profile_detail.html.py:17
+msgid "Department"
+msgstr ""
+
+#: .\profiles\models.py:25 .\templates\userena\profile_detail.html.py:14
+msgid "Company"
+msgstr ""
+
+#: .\profiles\models.py:27
+msgid "gender"
+msgstr ""
+
+#: .\profiles\models.py:31
+msgid "website"
+msgstr ""
+
+#: .\profiles\models.py:32
+msgid "location"
+msgstr ""
+
+#: .\profiles\models.py:33
+msgid "birth date"
+msgstr ""
+
+#: .\profiles\models.py:34
+msgid "about me"
+msgstr ""
+
+#: .\templates\userena\password_form.html.py:14
+#: .\templates\userena\profile_base.html.py:12
+msgid "Change password"
+msgstr ""
+
+#: .\templates\userena\profile_base.html.py:10
+msgid "View profile"
+msgstr ""
+
+#: .\templates\userena\profile_base.html.py:11
+msgid "Edit details"
+msgstr ""
+
+#: .\templates\userena\profile_base.html.py:13
+msgid "Change email"
+msgstr ""
+
+#: .\templates\userena\profile_detail.html.py:8
+msgid "Your mugshot"
+msgstr ""
+
+#: .\templates\userena\profile_detail.html.py:20
+msgid "Email"
+msgstr ""
+
+#: .\templates\userena\profile_detail.html.py:23
+msgid "Age"
+msgstr ""
+
+#: .\templates\userena\profile_detail.html.py:26
+msgid "Website"
+msgstr ""
+
+#: .\templates\userena\profile_detail.html.py:29
+msgid "Location"
+msgstr ""
+
+#: .\templates\userena\profile_detail.html.py:32
+msgid "About me"
+msgstr ""
+
+#: .\templates\userena\profile_form.html.py:14
+msgid "Save changes"
+msgstr ""
