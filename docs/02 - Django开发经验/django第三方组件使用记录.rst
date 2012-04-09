@@ -54,10 +54,13 @@ url.py中需要增加用户管理相关URL解析规则如下::
 
 django-userena中的组件easy-thumbnails所需的扩展库PIL
 ---------------------------------------------------
-easy-thumbnails是django的用于处理图像生成缩略图的扩展组件。该组件的运行，需要python环境安装PIL（ `Python Image Library <http://www.pythonware.com/products/pil/>`_ ）。在64位Win7操作系统环境下，使用64位python可能会遇到“无法找到python，无法安装PIL库”的问题。要解决这个问题可以有两个办法：
+easy-thumbnails是django的用于处理图像生成缩略图的扩展组件。该组件的运行，需要python环境安装PIL（ `Python Image Library <http://www.pythonware.com/products/pil/>`_ ）。在64位Win7操作系统环境下，使用64位python可能会遇到“无法找到python，无法安装PIL库”的问题。要解决这个问题：
 
 * 直接安装64位的PIL扩展库。由于官方网站提供的是32位的Windows安装版本，所以需要找64位版本。在 `LDF <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`_ 可以找到。
-* 直接从源代码安装。可以从官方网站下载 PIL-1.1.7.tar.gz，使用pip安装。
+
+对于使用Linux等系统的还可以：
+
+* 直接从源代码安装。可以从官方网站下载 PIL-1.1.7.tar.gz，使用pip安装。（这种安装方式需要本地编译器）
 
 自定义django-userena中的用户登录Form
 ----------------------------------
@@ -87,7 +90,8 @@ django-debug-toolbar在开发项目中启用
 -----------------------------------
 要在开发项目中启用django-debug-toolbar，可以按照以下步骤执行::
 
-	1. 将django-debug-toolbar安装后的目录加入Python Path.（通常使用PIP安装后，该目录就已经设置好了。如果遇到Import Error之类的错误可以检查一下这个设置）
+	1. 将django-debug-toolbar安装后的目录加入Python Path.（通常使用PIP安装后，该目录就已经设置好了。
+	如果遇到Import Error之类的错误可以检查一下这个设置）
 
 	2. 修改setting.py，在项目中启用该功能：
 
