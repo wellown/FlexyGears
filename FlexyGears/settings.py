@@ -34,7 +34,7 @@ TIME_ZONE = 'Asia/Shanghai'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'zh_CN'
+LANGUAGE_CODE = 'zh'
 
 SITE_ID = 1
 
@@ -52,7 +52,7 @@ USE_TZ = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 # MEDIA_ROOT = ''
-MEDIA_ROOT = os.path.join(APP_ROOT_DIR, 'site_media')
+MEDIA_ROOT = os.path.join(APP_ROOT_DIR, '../site_media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -102,7 +102,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 启用django-debug-toolbar中间件
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
+
+# debug_toolbar需要的设置
+INTERNAL_IPS = ('127.0.0.1',)
 
 ROOT_URLCONF = 'FlexyGears.urls'
 
@@ -113,7 +118,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(APP_ROOT_DIR, 'templates/')
+    os.path.join(APP_ROOT_DIR, 'templates/'),
+    'd:/pve/Lib/site-packages/debug_toolbar/templates'
 )
 
 INSTALLED_APPS = (
@@ -134,6 +140,7 @@ INSTALLED_APPS = (
     'guardian',
     'easy_thumbnails',
     'FlexyGears.profiles',
+    'debug_toolbar',
 )
 
 # userena所需要的设置
@@ -149,6 +156,7 @@ AUTHENTICATION_BACKENDS = (
 LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
+
 AUTH_PROFILE_MODULE = 'profiles.Profile'
 
 USERENA_ACTIVATION_REQUIRED = False
@@ -186,3 +194,8 @@ LOGGING = {
         },
     }
 }
+
+LOCALE_PATHS= (
+    # 添加LOCALE目录设置
+    os.path.join(APP_ROOT_DIR, '../locale')
+)
