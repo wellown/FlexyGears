@@ -1,0 +1,22 @@
+{%extends "userena/base_userena.html"%}
+{% load i18n %}
+{%block user-profile%}class="active"{%endblock%}
+{%block userena%}
+    <div class="row-fluid">
+        <div class="span3">
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+                    <li class="nav-header">个人信息面板</li>
+                    <li {%block profile-sidebar-detail%}{%endblock%}><a href="{% url userena_profile_detail user.username %}">{% trans "View profile" %} &raquo;</a></li>
+                    <li {%block profile-sidebar-edit%}{%endblock%}><a href="{% url userena_profile_edit user.username %}">{% trans "Edit details" %} &raquo;</a></li>
+                    <li {%block profile-sidebar-password%}{%endblock%}><a href="{% url userena_password_change user.username %}">{% trans "Change password" %} &raquo;</a></li>
+                    <li {%block profile-sidebar-email%}{%endblock%}><a href="{% url userena_email_change user.username %}">{% trans "Change email" %} &raquo;</a></li>
+                </ul>
+            </div><!--end of sidebar-nav-->
+        </div>
+        <div class="span9">
+            {%block profile-content%}
+            {%endblock%}
+        </div>
+    </div>
+{%endblock%}    
