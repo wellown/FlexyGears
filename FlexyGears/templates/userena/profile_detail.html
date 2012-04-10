@@ -1,0 +1,34 @@
+{%extends "userena/profile_base.html"%}
+{% load bootstrap_toolkit %}
+{% load i18n %}
+<!--标记侧边栏链接激活状态-->
+{% block profile-sidebar-detail %} class="active" {% endblock %}
+<!--右侧内容-->
+{% block profile-content %}
+            <img src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
+            {{request}}
+            {% if profile.real_name %}
+            <p><strong>{% trans "Real name" %}</strong><br /> {{ profile.real_name }}</p>
+            {% endif %}
+            {% if profile.company %}
+            <p><strong>{% trans "Company" %}</strong><br /> {{ profile.company }}</p>
+            {% endif %}
+            {% if profile.department %}
+            <p><strong>{% trans "Department" %}</strong><br /> {{ profile.department }}</p>
+            {% endif %}
+            {% if profile.user.email %}
+            <p><strong>{% trans "Email" %}</strong><br />{{ profile.user.email }}</p>
+            {% endif %}
+            {% if profile.age %}
+            <p><strong>{% trans "Age" %}</strong><br /> {{ profile.age }}</p>
+            {% endif %}
+            {% if profile.website %}
+            <p><strong>{% trans "Website" %}</strong><br /> <a href="{{ profile.website }}">{{ profile.website }}</a></p>
+            {% endif %}
+            {% if profile.location %}
+            <p><strong>{% trans "Location" %}</strong><br />{{ profile.location }}</p>
+            {% endif %}
+            {% if profile.about_me %}
+            <p><strong>{% trans "About me" %}</strong><br />{{ profile.about_me }}</p>
+            {% endif %}
+{%endblock%}    
