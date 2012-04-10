@@ -1,13 +1,15 @@
 {%extends "userena/base_userena.html"%}
 {% load bootstrap_toolkit %}
 {%block userena%}
-	    <div class="msgbox">
-            <h1 >FG：欢迎登录</h1>
+        <div class="msgbox">
+            <h1 class="centred-text">Gears：欢迎登录</h1>
             <hr>
             <form action="" method="post">
             	{% csrf_token %}
-                {{form|as_bootstrap}}
-                <div class ="actions">
+                <div class="msgbox-centre">
+                    {{form|as_bootstrap}}
+                </div>
+                <div class ="actions centred-text">
                     <input type="hidden" name="next" value="/"/>
                     <input type="submit" class="btn btn-primary btn-large" value="登录"/>
                 </div>
