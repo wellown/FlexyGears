@@ -1,0 +1,17 @@
+{%extends "userena/profile_base.html"%}
+{% load bootstrap_toolkit %}
+{% load i18n %}
+<!--标记侧边栏链接激活状态-->
+{% block profile-sidebar-email %} class="active" {% endblock %}
+<!--右侧内容-->
+{% block profile-content %}
+<form action="" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <div class="form-horizontal">
+        {{form|as_bootstrap}}
+    </div>
+    <div class="form-actions">
+        <input type="submit" class="btn btn-primary" value="{% trans "Change password" %}" />
+    </div>
+</form>
+{%endblock%}    
