@@ -1,8 +1,7 @@
 # coding: utf-8
 from django.conf.urls import patterns, include, url
-from profiles.forms import SigninFormExtra
-
 import os
+
 site_media = os.path.join(os.path.dirname(__file__), '../site_media')
 
 # Uncomment the next two lines to enable the admin:
@@ -19,10 +18,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    #url(r'^accounts/signin/$',
-    #  'userena.views.signin',
-    #  {'auth_form': SigninFormExtra},
-    #  name='userena_signin'),
     url(r'^accounts/', include('userena.urls')),
     url(r'^$', 'FlexyGears.views.home'),
 
