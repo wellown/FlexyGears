@@ -1,3 +1,4 @@
+# coding: utf-8
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
@@ -17,7 +18,9 @@ class Profile(UserenaLanguageBaseProfile):
                                 unique=True,
                                 verbose_name=_('user'),
                                 related_name='profile') 
-
+    real_name = models.CharField(_('Real name'), max_length=10, blank=True, null=True)
+    department = models.CharField(_('Department'), max_length=50, blank=True, null=True)
+    company = models.CharField(_('Company'), max_length=100, blank=True, null=True)
     gender = models.PositiveSmallIntegerField(_('gender'),
                                               choices=GENDER_CHOICES,
                                               blank=True,
