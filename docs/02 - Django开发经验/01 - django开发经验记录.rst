@@ -7,7 +7,7 @@ django开发经验及有用的代码片段
 ============================
 
 django开发阶段静态文件访问服务的实现方法
--------------------------------------
+----------------------------------------
 在使用django进行开发的过程中，需要使用内建的development开发服务器以简化开发流程。由于django开发服务器存在性能问题，因此仅供开发使用。要启用django开发服务器需要在进行相关设置：
 
 setting.py中修改相关目录设置::
@@ -28,6 +28,41 @@ url.py中添加访问静态文件的URL配置::
 
 django开发文件静态文件
 -----------------------
+
+django中的TEMPLATE_CONTEXT_PROCESSORS
+--------------------------------------
+在django中，有时会遇到一些需要在不同模板中访问整站共用的信息的时候。如果依赖对应的View在逐个构建，那么代码会非常繁琐和冗余。为了解决这个问题，通过查看django中request对象中user成员对象的构建方式，发现可以使用TEMPLATE_CONTEXT_PROCESSORS设置来解决。
+
+django中的TEMPLATE_CONTEXT_PROCESSORS \ [#]_\  可以对Context进行修改，加入（或修改）指定的共用变量。以便在模板中使用。为了在整站的所有模板中都可以方便的显示用户Profile中的相关设定，因此，需要在RequestContext中增加Profile对象。具体的代码如下::
+
+	#setting.py中设置TEMPLATE_CONTEXT_PROCESSORS
+	TEMPLATE_CONTEXT_PROCESSORS = (
+	    'django.contrib.auth.context_processors.auth',
+	    'django.core.context_processors.i18n',
+	    'django.core.context_processors.media',
+	    # 将用户的个人设置加入到默认变量中，供全站使用
+	    'FlexyGears.context_processors.global_vars',
+	)
+
+	# 编写代码实现添加功能
+	# context_processors.py
+	from django.contrib.auth.models import User
+	from FlexyGears.profiles.models import Profile
+
+	def global_vars( request ):
+	"""
+		获取用户的个性化设置信息。并添加到各模板的Context中，供模板访问使用
+	"""
+	try:
+		profile = Profile.objects.get( user_id=request.user.id )
+	except:
+		return { 'profile': '',}
+	return {
+		#'request': request,
+		'profile': profile,
+		}
+
+
 
 django国际化开发经验
 -----------------------
@@ -111,4 +146,5 @@ django代码学习
 
 
 ----
+.. [#] https://docs.djangoproject.com/en/1.4/ref/templates/api/#playing-with-context-objects
 .. [#] https://docs.djangoproject.com/en/dev/ref/templates/builtins/#url
