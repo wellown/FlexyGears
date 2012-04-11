@@ -478,7 +478,7 @@ msgstr "你的密码已经更改"
 
 #: .\templates\userena\password_complete.html.py:8
 msgid "From now on you can use your new password to signin"
-msgstr "你可以使用你的新密码来进行登入"
+msgstr "你可以使用你的新密码来登录本站"
 
 #: .\templates\userena\password_form.html.py:17
 msgid "Change Password"
@@ -497,9 +497,8 @@ msgid "You can now "
 msgstr ""
 
 #: .\templates\userena\password_reset_complete.html.py:7
-#, fuzzy
 msgid "signin"
-msgstr "登入"
+msgstr "登录"
 
 #: .\templates\userena\password_reset_complete.html.py:7
 #, fuzzy
@@ -605,7 +604,7 @@ msgstr "下一个"
 #: .\templates\userena\signin_form.html.py:10
 #: .\templates\userena\signin_form.html.py:28
 msgid "Signin"
-msgstr "登入"
+msgstr "登录"
 
 #: .\templates\userena\signin_form.html.py:29
 msgid "Forgot your password?"
@@ -652,7 +651,7 @@ msgstr "我们将会保存帐号启用信息 %(userena_activation_days)s 天"
 
 #: .\templates\userena\signup_complete.html.py:16
 msgid "You can now use the supplied credentials to signin."
-msgstr "你现在可以提供你的登入信息来进行登入。"
+msgstr "你现在可以使用你的密码信息来进行登录。"
 
 #: .\templates\userena\emails\activation_email_message.txt.py:2
 #: .\templates\userena\emails\confirmation_email_message_new.txt.py:2
@@ -763,30 +762,32 @@ msgstr "位置"
 msgid "about me"
 msgstr "关于我"
 
-#~ msgid "Conversation with %(recipient)s"
-#~ msgstr "与 %(recipient)s 的对话"
+# msgid "Conversation with %(recipient)s"
+# msgstr "与 %(recipient)s 的对话"
 
-#~ msgid "Received on %(sent_at)s"
-#~ msgstr "接收于 %(sent_at)s"
+# msgid "Received on %(sent_at)s"
+# msgstr "接收于 %(sent_at)s"
 
-#~ msgid "Messages"
-#~ msgstr "信息"
+# msgid "Messages"
+# msgstr "信息"
 
-#~ msgid "%(unread_message_count)s new messages."
-#~ msgstr "%(unread_message_count)s 则新信息"
+# msgid "%(unread_message_count)s new messages."
+# msgstr "%(unread_message_count)s 则新信息"
 
-#~ msgid "%(latest_message)s (%(unread_between_count)s new)"
-#~ msgstr "%(latest_message)s (%(unread_between_count)s 则新信息)"
+# msgid "%(latest_message)s (%(unread_between_count)s new)"
+# msgstr "%(latest_message)s (%(unread_between_count)s 则新信息)"
 
-#~ msgid ""
-#~ "You can now <a href=\"%(signin_url)s\">signin</a> with your new password."
-#~ msgstr "你现在可以使用你的新密码进行 <a href=\"%(signin_url)s\">登入</a>。"
+# msgid ""
+# "You can now <a href=\"%(signin_url)s\">signin</a> with your new password."
+# msgstr "你现在可以使用你的新密码进行 <a href=\"%(signin_url)s\">登录</a>。"
 
-#~ msgid "Password reset email sent"
-#~ msgstr "密码重设信件已经发送"
+# msgid "Password reset email sent"
+# msgstr "密码重设信件已经发送"
 
 # FlexyGears项目自定义翻译字段
 # ============================
+# FlexyGears Profiles中的翻译字段
+# -------------------------------
 #: .\profiles\models.py:21 .\templates\userena\profile_detail.html.py:11
 msgid "Real name"
 msgstr "真实姓名"
@@ -798,3 +799,35 @@ msgstr "部门"
 #: .\profiles\models.py:25 .\templates\userena\profile_detail.html.py:14
 msgid "Company"
 msgstr "公司"
+
+# FlexyGears 用户模板中的翻译字段
+# -------------------------------
+
+#: .\templates\userena\signin_form.html.py:19
+msgid "Need account?"
+msgstr "没有账户吗？"
+
+#: .\templates\userena\signin_form.html.py:19
+#: .\templates\userena\signin_form.html.py:21
+msgid " Click here"
+msgstr "点击这里"
+
+#: .\templates\userena\signin_form.html.py:19
+msgid " to signup an account."
+msgstr "注册账户"
+
+#: .\templates\userena\signin_form.html.py:21
+msgid " to reset your password."
+msgstr "重置密码"
+
+#: .\templates\userena\signup_form.html.py:6
+msgid "Gears: Create Account"
+msgstr "Gears：创建账户"
+
+#: .\templates\userena\password_reset_form.html.py:7
+msgid "Gears: Reset password"
+msgstr "Gears: 重置密码"
+
+#: .\templates\userena\signin_form.html.py:6
+msgid "Gears: Welcome Login"
+msgstr "Gears: 欢迎登录"
