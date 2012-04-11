@@ -26,9 +26,6 @@ url.py中添加访问静态文件的URL配置::
 	# 在urlpatterns中添加如下解析规则
 	url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': site_media}),
 
-django开发文件静态文件
------------------------
-
 django中的TEMPLATE_CONTEXT_PROCESSORS
 --------------------------------------
 在django中，有时会遇到一些需要在不同模板中访问整站共用的信息的时候。如果依赖对应的View在逐个构建，那么代码会非常繁琐和冗余。为了解决这个问题，通过查看django中request对象中user成员对象的构建方式，发现可以使用TEMPLATE_CONTEXT_PROCESSORS设置来解决。
