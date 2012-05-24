@@ -22,3 +22,14 @@ body{
   width: 320px;
   margin: 7em auto;
 }
+
+.centred-text{
+  text-align: center;
+}
+
+.msgbox-centre{
+  width: 220px;
+  /*margin-left: 50px;*/
+  margin: 0 auto;
+  text-align: left;
+}

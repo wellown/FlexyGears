@@ -102,12 +102,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 启用django-debug-toolbar中间件
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 # debug_toolbar需要的设置
-INTERNAL_IPS = ('127.0.0.1',)
+#INTERNAL_IPS = ('127.0.0.1',)
 
 ROOT_URLCONF = 'FlexyGears.urls'
 
@@ -119,7 +117,14 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(APP_ROOT_DIR, 'templates/'),
-    'd:/pve/Lib/site-packages/debug_toolbar/templates'
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    #'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    # 将用户的个人设置加入到默认变量中，供全站使用
+    'FlexyGears.context_processors.global_vars',
 )
 
 INSTALLED_APPS = (
@@ -140,7 +145,6 @@ INSTALLED_APPS = (
     'guardian',
     'easy_thumbnails',
     'FlexyGears.profiles',
-    'debug_toolbar',
 )
 
 # userena所需要的设置
@@ -165,6 +169,31 @@ USERENA_MUGSHOT_SIZE = 140
 
 # Django-guardian所需要的设置
 ANONYMOUS_USER_ID = -1
+
+# 增加django-debug-toolbar设置
+# =============================
+# 安装debug_toolbar程序
+INSTALLED_APPS += (
+    'debug_toolbar',
+)
+
+# 设置debug_toolbar模板目录
+TEMPLATE_DIRS += (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    'd:/pve/Lib/site-packages/debug_toolbar/templates',
+)
+
+# 设置中间件
+MIDDLEWARE_CLASSES += (
+    # 启用django-debug-toolbar中间件
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+)
+
+# debug_toolbar需要的设置
+INTERNAL_IPS = ('127.0.0.1',)
+# 增加django-debug-toolbar设置结束
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -194,8 +223,3 @@ LOGGING = {
         },
     }
 }
-
-LOCALE_PATHS= (
-    # 添加LOCALE目录设置
-    os.path.join(APP_ROOT_DIR, '../locale')
-)

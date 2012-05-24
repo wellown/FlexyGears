@@ -1,8 +1,9 @@
 {%extends "userena/base_userena.html"%}
+{% load i18n %}
 {% load bootstrap_toolkit %}
 {%block userena%}
         <div class="msgbox">
-            <h1 class="centred-text">Gears：欢迎登录</h1>
+            <h1 class="centred-text">{% trans "Gears: Welcome Login"%}</h1>
             <hr>
             <form action="" method="post">
             	{% csrf_token %}
@@ -11,10 +12,13 @@
                 </div>
                 <div class ="actions centred-text">
                     <input type="hidden" name="next" value="/"/>
-                    <input type="submit" class="btn btn-primary btn-large" value="登录"/>
+                    <input type="submit" class="btn btn-primary btn-large" value="{% trans "Signin"%}"/>
                 </div>
                 <hr>
-                <p>没有账号吗？点击<a href="/accounts/signup">这里</a>注册。</p>
+                <div class="msgbox-centre">
+                    <p>{% trans "Need account?"%}<a href="{% url userena_signup %}">{% trans " Click here"%}</a>{%trans " to signup an account."%}</p>
+                    <p>{% trans "Forgot your password?"%}<a href="{% url userena_password_reset %}">{% trans " Click here"%}</a>{%trans " to reset your password."%}</p>
+                </div>
             </form>
         </div>
 {%endblock%}    

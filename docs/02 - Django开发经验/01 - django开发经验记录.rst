@@ -28,7 +28,7 @@ url.py中添加访问静态文件的URL配置::
 
 django中的TEMPLATE_CONTEXT_PROCESSORS
 --------------------------------------
-在django中，有时会遇到一些需要在不同模板中访问整站共用的信息的时候。如果依赖对应的View在逐个构建，那么代码会非常繁琐和冗余。为了解决这个问题，通过查看django中request对象中user成员对象的构建方式，发现可以使用TEMPLATE_CONTEXT_PROCESSORS设置来解决。
+在使用django开发过程中，有时会遇到一些需要在不同模板中访问整站共用的信息的时候。如果依赖对应的View在逐个构建，那么代码会非常繁琐和冗余。为了解决这个问题，通过查看django中request对象中user成员对象的构建方式，发现可以使用TEMPLATE_CONTEXT_PROCESSORS设置来解决。
 
 django中的TEMPLATE_CONTEXT_PROCESSORS \ [#]_\  可以对Context进行修改，加入（或修改）指定的共用变量。以便在模板中使用。为了在整站的所有模板中都可以方便的显示用户Profile中的相关设定，因此，需要在RequestContext中增加Profile对象。具体的代码如下::
 
